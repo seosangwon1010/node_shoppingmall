@@ -1,11 +1,21 @@
 
 
 const express = require('express'); // 상수화
+const bodyParser = require('body-parser');
 const app = express();
 
 
 const productRouter = require('./routes/product');
 const orderRouter = require('./routes/order');
+
+// 미들웨어 설정
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false}));
+
+
+
+
+
 
 
 app.use('/product', productRouter);
