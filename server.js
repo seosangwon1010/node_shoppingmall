@@ -2,6 +2,7 @@
 
 const express = require('express'); // 상수화
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 const app = express();
 
 
@@ -11,6 +12,8 @@ const orderRouter = require('./routes/order');
 // 미들웨어 설정
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
+
+app.use(morgan("dev"))
 
 
 
