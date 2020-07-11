@@ -4,13 +4,12 @@ const express = require('express'); // 상수화
 const app = express();
 
 
-app.use((req, res) => {
-    res.json({
-        msg: "Successful main data"
-    })
-})
+const productRouter = require('./routes/product');
+const orderRouter = require('./routes/order');
 
 
+app.use('/product', productRouter);
+app.use('/order', orderRouter);
 
 
 const app_port = 8099;
